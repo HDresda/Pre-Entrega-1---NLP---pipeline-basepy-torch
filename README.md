@@ -5,21 +5,6 @@ Proyecto integrador · Data Science III · Módulo 1. Preparado para Hans.
 Clasificar las tres especies de Iris usando cuatro mediciones, con un MLP 4 → 16 → 16 → 3 y ReLU.
 120 ejemplos de entrenamiento y 30 de validación; división estratificada y StandardScaler ajustado solo con entrenamiento.
 
-## Instalación y ejecución
-Referencia de ejecución: Python 3.12.14, PyTorch 2.15.0+cpu, dispositivo cpu.
-
-1. Descomprimir el proyecto y abrir una terminal en su raíz.
-2. Crear entorno: `python -m venv .venv`.
-3. Activar en Windows PowerShell: `.venv\Scripts\Activate.ps1`; en macOS/Linux: `source .venv/bin/activate`.
-4. Instalar: `python -m pip install -r requirements.txt`.
-5. Abrir `notebooks/01_pipeline_base.ipynb` en VS Code con las extensiones Python/Jupyter y seleccionar ese entorno.
-6. Reiniciar el kernel y ejecutar todas las celdas. Se regeneran README y reports/.
-
-Para Colab, subir el notebook y ejecutar con sus librerías disponibles; revisar las versiones impresas.
-Para usar GPU, instalar previamente la variante de PyTorch compatible desde https://pytorch.org/get-started/locally/.
-La detección CUDA/MPS/CPU es automática; este proyecto fue verificado en cpu, no en todos los dispositivos.
-Las semillas no garantizan identidad numérica entre hardware y versiones.
-
 ## Configuración
 - Semilla: 42
 - Adam, learning_rate: 0.01
@@ -43,7 +28,6 @@ No se utiliza un conjunto de test independiente ni se guarda/restaura un modelo 
 - notebooks/01_pipeline_base.ipynb: desarrollo autónomo y comentado.
 - reports/: métricas, resumen con configuración e índices y figuras.
 - requirements.txt: versiones del entorno verificado.
-- GUIA_ENTREGA.md: instrucciones de versionado y entrega.
 
 ## Fuentes
 Material adjunto: presentación Módulo 1 Data Science III, diapositivas 30–39, y notebook de clase, Parte 4.
@@ -55,3 +39,7 @@ Material adjunto: presentación Módulo 1 Data Science III, diapositivas 30–39
 ## Alcance
 Pre-entrega técnica: pipeline funcional y comprensible. Las 30 muestras de validación no permiten asegurar rendimiento en producción.
 Un checkpoint de pesos es opcional y no forma parte de esta versión.
+
+### Interpretación del experimento:
+La pérdida (*loss*) descendió de manera consistente a lo largo de las 50 épocas tanto en el conjunto de entrenamiento como en el de validación. Ambas curvas convergen de forma pareja sin que la pérdida de validación se dispare hacia arriba, lo que demuestra que el clasificador base aprende patrones generalizables y no presenta *overfitting* severo.
+
