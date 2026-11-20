@@ -1,5 +1,5 @@
-# Pipeline base de clasificación con PyTorch
-Proyecto integrador · Data Science III · Módulo 1. Preparado para Hans.
+# Pre-entrega 1 - Pipeline base de clasificación con PyTorch
+Proyecto integrador · Data Science III 
 
 ## Objetivo y datos
 Clasificar las tres especies de Iris usando cuatro mediciones, con un MLP 4 → 16 → 16 → 3 y ReLU.
@@ -29,12 +29,6 @@ No se utiliza un conjunto de test independiente ni se guarda/restaura un modelo 
 - reports/: métricas, resumen con configuración e índices y figuras.
 - requirements.txt: versiones del entorno verificado.
 
-## Fuentes
-Material adjunto: presentación Módulo 1 Data Science III, diapositivas 30–39, y notebook de clase, Parte 4.
-- https://docs.pytorch.org/tutorials/beginner/basics/optimization_tutorial.html
-- https://docs.pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html
-- https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html
-- https://scikit-learn.org/stable/common_pitfalls.html
 
 ## Alcance
 Pre-entrega técnica: pipeline funcional y comprensible. Las 30 muestras de validación no permiten asegurar rendimiento en producción.
@@ -43,3 +37,17 @@ Un checkpoint de pesos es opcional y no forma parte de esta versión.
 ### Interpretación del experimento:
 La pérdida (*loss*) descendió de manera consistente a lo largo de las 50 épocas tanto en el conjunto de entrenamiento como en el de validación. Ambas curvas convergen de forma pareja sin que la pérdida de validación se dispare hacia arriba, lo que demuestra que el clasificador base aprende patrones generalizables y no presenta *overfitting* severo.
 
+# Pre-entrega 3 · Clasificador supervisado de AG News
+
+## Justificación del modelo
+
+El modelo seleccionado fue LinearSVC porque trabaja con matrices TF-IDF dispersas de alta dimensión y permite asignar una categoría por noticia. La elección responde al objetivo de clasificación y a las características de los datos. La comparación experimental se concentró en los parámetros de TF-IDF.
+
+## Análisis preliminar
+
+Se identifican a Business como la categoría con menor F1 (0,8518). El cruce principal fue Sci_Tech → Business, con 45 casos, seguido de Business → Sci_Tech, con 41. Juntas, ambas direcciones explican 86 de los 208 errores (41,3 %). La noticia sobre la oferta de Oracle por PeopleSoft ilustra cómo un mismo texto puede combinar vocabulario tecnológico y financiero.
+
+## Archivo de Requerimientos
+
+El archivo requirements.txt contiene las dependencias de las tres pre-entregas del
+curso DataScience 3 - NLP
